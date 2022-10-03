@@ -1,0 +1,130 @@
+<section class="">
+  <div class="">
+    <div class="row">
+      <div class="col">
+        <div class="container top">
+            <div class="modal__container">
+              <div class="modal__featured">
+                <div class="modal__circle"></div>
+                <img
+                  src="https://images.pexels.com/photos/3585075/pexels-photo-3585075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  class="modal__circle"
+                />
+              </div>
+              <div class="modal__content">
+                <h2>Registra un Usuario</h2>
+                <br />
+        
+                <form #frmLogin="ngForm" class="" (ngSubmit)="register(frmLogin)">
+                  <ul class="form-list">
+                     <!-- Nombre input-->
+                     <li class="form-list__row">
+                        <div>
+                          <label for="name">Nombre</label>
+                          <input type="text" name="name" ngModel required />
+                        </div>
+                      </li>
+                    <!-- email input-->
+                    <li class="form-list__row">
+                      <div>
+                        <label for="name">Email</label>
+                        <input type="email" name="email" ngModel required />
+                      </div>
+                    </li>
+                    <!-- Password -->
+                    <li class="form-list__row">
+                      <div>
+                        <label for="name">Contraseña</label>
+                        <input type="password" name="password" ngModel required />
+                      </div>
+                    </li>
+        
+                    <!-- btn login -->
+        
+                    <div>
+                      <button class="btn-lg button" type="submit">
+                        Registrar Usuario
+                      </button>
+                    </div>
+                  </ul>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col">
+        <div class="container top">
+            <div class="modal__container">
+              <div class="modal__featured">
+                <div class="modal__circle"></div>
+                <img
+                  src="https://images.pexels.com/photos/12448246/pexels-photo-12448246.jpeg?cs=srgb&dl=pexels-yura-forrat-12448246.jpg&fm=jpg"
+                  class="modal__circle"
+                />
+              </div>
+              <div class="modal__content">
+                <h2>Vehiculos</h2>
+                <br />
+        
+                <form #frmLogin="ngForm" class="" (ngSubmit)="(frmLogin)">
+                  <ul class="form-list">
+                    <div class="form-list__row form-group row">
+                    <!-- Capacidad Vehiculo -->
+                        <div class="col-md-6">
+                            <div>
+                                <label for="name">Capacidad</label>
+                                <input type="number" name="capacidad" ngModel required />
+                              </div>
+                        </div>
+                         <!-- cilindraje -->
+                        <div class="col-md-6">
+                            <div>
+                                <label for="name">Cilindraje</label>
+                                <input type="number" name="cilindraje" ngModel required />
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="form-list__row form-group row">
+                        <!-- soat -->
+                            <div class="col-md-6">
+                                <div>
+                                    <label for="name">Fecha SOAT</label>
+                                    <input type="date" name="soat" ngModel required />
+                                  </div>
+                            </div>
+                             <!-- placa -->
+                            <div class="col-md-6">
+                                <div>
+                                    <label for="name">Placa</label>
+                                    <input type="text" name="placa" ngModel required />
+                                  </div>
+                            </div>
+                        </div>
+                       <!-- Propietario -->
+                    <li class="form-list__row">
+                        <div>
+                          <label for="name">Propietario</label>
+                          <input type="text" name="propietario" ngModel required />
+                        </div>
+                      </li>
+                      
+                      
+        
+                    <!-- btn login -->
+        
+                    <div>
+                      <button class="btn-lg button" type="submit">
+                        Registrar Vehiculo
+                      </button>
+                    </div>
+                  </ul>
+                </form>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
