@@ -4,6 +4,7 @@ import { UserI } from '../models/user';
 import { JwtResponseI } from '../models/jwt-response';
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { VehiculoI } from '../models/vehiculo';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,7 @@ export class AuthService {
         })
       );
   }
-
+//metodo Login 
   login(user: UserI): Observable<JwtResponseI> {
     return this.httpClient
       .post<JwtResponseI>(`${this.AUTH_SERVER}/login`, user).pipe(
@@ -40,6 +41,8 @@ export class AuthService {
         })
       );
   }
+
+ 
 
 //metodo close sesion
 logout(): void{
@@ -61,6 +64,20 @@ private getToken():string{
     this.token=localStorage.getItem("ACCESS_TOKEN");
   }
   return  this.token;
+}
+
+ // metodo registrar vehiculo 
+ registerVehi(vehiculo: VehiculoI) {
+  return this.httpClient.post(`${this.AUTH_SERVER}/registerVehi`, vehiculo)
+
+}
+
+
+//mostrar vehiculos
+getVehiculo(){
+  return this.httpClient.get(`${this.AUTH_SERVER}/getVehiculo`).subscribe(data =>{
+    console.log(data);
+  });
 }
 
 }

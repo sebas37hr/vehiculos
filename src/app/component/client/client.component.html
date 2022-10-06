@@ -1,0 +1,32 @@
+
+        <table id="myTable">
+            <tr>
+                <th>capacidad</th>
+                <th>cilindraje</th>
+                <th>soat</th>
+                <th>placa</th>
+                <th>propietario</th>
+            </tr>  
+        </table>
+
+        <script type="text/javascript">
+            $.ajax({
+                url: 'http://localhost:3000/getVehiculo',
+                dataType: 'json',
+                success: function(data) {
+                    for (var i=0; i<data.length; i++) {
+                        var row = $('<tr><td>' + data[i].capacidad+ '</td><td>' + data[i].cilindraje + '</td><td>' + data[i].soat + '</td><td>' + data[i].placa + '</td><td>' + data[i].propietario + '</td></tr>');
+                        $('#myTable').append(row);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    alert('Error: ' + textStatus + ' - ' + errorThrown);
+                }
+            });
+            </script>
+
+        
+
+
+
+

@@ -18,7 +18,13 @@ export class RegisterComponent implements OnInit {
 register(form):void{
 this.authService.regiter(form.value).subscribe(res =>{
   console.log('usar register');
-})
+});
+}
+
+registerVehi(frmRegisterV):void{
+  this.authService.registerVehi(frmRegisterV.value).subscribe(res =>{
+    console.log('regustro vehiculo', frmRegisterV.value);
+  });
 }
   
   
