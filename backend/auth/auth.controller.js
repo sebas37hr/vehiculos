@@ -1,8 +1,11 @@
 const User = require('./auth.dao');
+const vehi =require('./vehi.dao');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const SECRET_KEY = 'secretkey123456';
 
+
+//crear usuario
 exports.createUser = (req, res, next) => {
   const newUser = {
     name: req.body.name,
@@ -11,6 +14,7 @@ exports.createUser = (req, res, next) => {
   }
 
   User.create(newUser, (err, user) => {
+    console.log('xxxxxx',err);
     if (err && err.code === 11000) return res.status(409).send('Email already exists');
     if (err) return res.status(500).send('Server error');
     const expiresIn = 24 * 60 * 60;
@@ -29,6 +33,56 @@ exports.createUser = (req, res, next) => {
   });
 }
 
+//create Vehiculos BD
+exports.createVehiculo = (veh, res, next) => {
+const newVehiculo = {
+capacidad: veh.body.capacidad,
+cilindraje: veh.body.cilindraje,
+soat: veh.body.soat,
+placa: veh.body.placa,
+propietario: veh.body.propietario,
+}
+vehi.create(newVehiculo,(err, vehiculo)=>{
+  console.log('zzzzz',err);
+  if (err && err.code === 11000) return res.status(409).send('Ya existe el vehiculo');
+  if (err) return res.status(500).send('Server error');
+
+  const dataVehi = {
+    capacidad: vehiculo.capacidad,
+    cilindraje: vehiculo.cilindraje,
+    soat: vehiculo.soat,
+    placa: vehiculo.placa,
+    propietario: vehiculo.propietario
+  }
+  //response 
+  res.send({dataVehi});
+
+});
+}
+
+//mostrar Vehiculos 
+exports.getVehi = (req, res)=>{
+  vehi.find({}, (err, datos)=>{
+    const propiedadesCarro = datos.map(dataVehi =>{
+      const properties = {
+      capacidad: dataVehi.capacidad,
+      cilindraje: dataVehi.cilindraje,
+      soat: dataVehi.soat,
+      placa: dataVehi.placa,
+      datos: dataVehi.propietario
+      }
+      return properties;
+    });
+  
+      console.log('data', propiedadesCarro);
+     res.send({propiedadesCarro});
+  });
+}
+  
+  
+  
+
+//login
 exports.loginUser = (req, res, next) => {
   const userData = {
     email: req.body.email,
