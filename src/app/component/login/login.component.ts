@@ -10,16 +10,15 @@ import { UserI } from 'src/app/models/user';
 })
 export class LoginComponent implements OnInit {
 
+  // inyectamos en el constructor el servicio. 
+
   constructor(private authService: AuthService, private router: Router) { }
 
 
   ngOnInit(): void {
   }
 
-  //metodo login
-
- 
- 
+  //Enviamos la data al servicio que se encarga de llevar la info a la BD mediante las funciones en el Back
  iniciar(form): void{
 
   this.authService.login(form.value).subscribe(res =>{
