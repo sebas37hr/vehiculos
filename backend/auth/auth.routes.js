@@ -1,3 +1,6 @@
+// generamos las rutas de la aplicacion, donde redireccionamos a la controladora y los metodos. 
+
+
 const Users = require('./auth.controller');
 const vehiculo = require('./auth.controller')
 

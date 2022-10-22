@@ -1,3 +1,8 @@
+
+// se genera la conexion a la Base de datos y las validaciones en caso de perder conexion. 
+// en este archivo, traemos la bariable contante de las propiedades de la BD que se ecnuetra en 
+// config/properties.js
+
 const mongoose = require('mongoose');
 const dbURL = require('./properties').DB;
 
